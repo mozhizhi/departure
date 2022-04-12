@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="persi.sumu.departure.demo.dao.UserDao">
+
+	<!-- 商品简略列表信息 -->
+	<resultMap type="persi.sumu.departure.demo.entity.User" id="userListResult">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+		<result column="remark" property="remark" />
+
+	</resultMap>
+
+    <!-- 查询对应的用户昵称 -->
+    <select id="selectAll" resultMap="userListResult">
+    	SELECT * FROM t_core_user
+    </select>
+
+	<!-- 保存：动态收藏 -->
+	<insert id="addUser" parameterType="persi.sumu.departure.demo.entity.User">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+    	INSERT INTO t_core_user (
+			name,
+			password,
+			remark
+		)
+		VALUES
+			(
+				#{name,jdbcType=VARCHAR},
+				#{password,jdbcType=VARCHAR},
+				#{remark,jdbcType=VARCHAR}
+			)
+    </insert>
+
+</mapper>
