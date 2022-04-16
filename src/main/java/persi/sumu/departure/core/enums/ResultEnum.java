@@ -10,7 +10,19 @@ public enum ResultEnum {
 
     SERVER_ERROR(500,"服务器内部错误"),
 
-    SERVICE_SAVE_ERROR(1002, "保存失败"),;
+    SERVICE_SAVE_ERROR(1001, "保存失败"),
+
+    QN_UN_LEGAL_FILE_NAME(1101, "不支持的文件类型"),
+
+    QN_EMPTY_UPLOAD_FILE_ERROR(1102, "待上传文件不能为空"),
+
+    QN_FILE_IMAGE_SINGLE_UPLOAD_MORE_THAN_MAX(1103, "单个图片上传超过最大文件大小限制"),
+
+    QN_FILE_UPLOAD_ERROR(1104, "文件上传失败"),
+
+    QN_DELETE_FILE_FAIL(1105, "删除文件失败"),
+
+    QN_REFRESH_FILE_FAIL(1106, "刷新文件失败");
 
     private Integer code;
     private String message;
