@@ -1,4 +1,4 @@
-package persi.sumu.departure.core.config;
+package persi.sumu.departure.core.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
